@@ -1,0 +1,13 @@
+syntax = "proto3";
+
+package metrics;
+
+import "entities/visit.proto";
+
+service MetricsCollector {
+  rpc TrackVisit (Visit) returns (Response) {}
+}
+
+message Response {
+  string message = 1;
+}

@@ -1,0 +1,133 @@
+syntax = "proto3";
+
+import "entities/utm.proto";
+import "google/protobuf/timestamp.proto";
+
+message Update {
+  string id = 1;
+  string user_id = 2;
+  string client_id = 3;
+  string profile_id = 4;
+  string profile_service = 5;
+  google.protobuf.Timestamp created_at = 6;
+  google.protobuf.Timestamp due_at = 7;
+  google.protobuf.Timestamp sent_at = 8;
+  google.protobuf.Timestamp scheduled_at = 9;
+  string service_update_id = 10;
+  string text = 11;
+  enum Status {
+      SENT = 0;
+      ANALYTICS = 1; // What does that means?
+      PROCESSING_ANALYTICS = 2;
+      BUFFER = 3;
+      SERVICE = 4;
+  }
+  Status status = 12;
+  google.protobuf.Timestamp updated_at = 13;
+  enum Via {
+      API = 0;
+      BOOKMARKLET = 1;
+      FACEBOOK = 2;
+      FEEDS = 3;
+  }
+  Via via = 14;
+  Media media = 15;
+  bool pinned = 16;
+  string update_service_id_broken = 17; // What is this?
+  google.protobuf.Timestamp analytics_at = 18; // Same as 19?
+  google.protobuf.Timestamp analytics_last_at = 19;
+  string analytics_checks = 20;
+  int32 analytics_retries = 21;
+  int32 last_gnip_check = 22;
+  string library_update_id = 23;
+  bool needs_approval = 24;
+  bool shared_next = 25; // Same as shared now?
+  bool shared_now = 26; // TODO: Naming conventions!
+  bool needs_resizing = 27;
+  bool partner_placement = 28;
+  string partner_source = 29;
+  string text_md5 = 30;
+  string service_url = 31;
+  string retweeted_tweet_id = 32;
+  string queue_nonce = 33;
+  repeated ExtraMedia extra_media = 34;
+  Retweet retweet = 35;
+  ShorteningInfo shortening_info = 36;
+  UpdateStatistics statistics = 37;
+}
+
+message UpdateStatistics {
+    int32 clicks = 1;
+    int32 comments = 2;
+    int32 likes = 3;
+    int32 negative_feedback = 4;
+    float negative_feedback_per_reach = 5;
+    int32 reach = 6;
+    int32 shares = 7;
+    int32 mentions = 8;
+    int32 retweets = 9;
+    int32 plusOnes = 10;
+    int32 reshares = 11;
+    int32 favorites = 12;
+}
+
+message Media {
+    string photo = 1;
+    string thumbnail = 2;
+    string description = 3;
+    string expanded_link = 4;
+    string link = 5;
+    string picture = 6;
+    string preview = 7;
+    repeated string thumbnails = 8;
+    string title = 9;
+    string original = 10;
+    string comment_url = 11;
+    string alt_text = 12;
+    string video = 13;
+    VideoDetails video_details = 14;
+}
+
+message VideoDetails {
+    string duration = 1; // TODO: Use proper type
+    string duration_millis = 2;
+    int64 file_size = 3;
+    int32 width = 4;
+    int32 height = 5;
+    string transcoded_location = 6;
+    string location = 7;
+}
+
+message ExtraMedia {
+    string photo = 1;
+    string thumbnail = 2;
+    string alt_text = 3;
+    string progress = 4;
+    bool uploaded = 5;
+    string picture = 6;
+}
+
+message Retweet {
+    string avatar = 1;
+    string comment = 2;
+    google.protobuf.Timestamp created_at = 3;
+    string profile_name = 4;
+    string text = 5;
+    string tweet_id = 6;
+    string url = 7;
+    string user_id = 8;
+    string username = 9;
+}
+
+message ShorteningInfo {
+    string location = 1;
+    string media_link = 2;
+    bool needs_shortening = 3;
+    string partner_source = 4;
+    bool remove_link_from_text = 5;
+    google.protobuf.Timestamp shortened_at = 6;
+    string shortener = 7;
+    int32 time_taken_ms = 8;
+    string tracking = 9;
+    Utm utm = 10;
+}

@@ -1,0 +1,18 @@
+syntax = "proto3";
+
+import "google/protobuf/timestamp.proto";
+
+// TODO: Naming as events or steps?
+message FunnelEvent {
+    string id = 1;
+    string user_id = 2;
+    google.protobuf.Timestamp created_at = 3;
+    string funnel_id = 4;
+    string funnel_event_id = 5;
+    repeated FunnelTag tags = 6;
+}
+
+message FunnelTag {
+    string key = 1;
+    string value = 2;
+}

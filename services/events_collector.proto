@@ -1,10 +1,10 @@
 syntax = "proto3";
 
-package metrics;
+package collector;
 
 import "entities/visit.proto";
 
-service MetricsCollector {
+service EventsCollector {
   rpc TrackVisit (Visit) returns (Response) {}
 }
 

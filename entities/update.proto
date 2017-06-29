@@ -17,7 +17,7 @@ message Update {
   string text = 11;
   enum Status {
       SENT = 0;
-      ANALYTICS = 1; // What does that means?
+      ANALYTICS = 1;
       PROCESSING_ANALYTICS = 2;
       BUFFER = 3;
       SERVICE = 4;
@@ -33,16 +33,16 @@ message Update {
   Via via = 14;
   Media media = 15;
   bool pinned = 16;
-  string update_service_id_broken = 17; // What is this?
-  google.protobuf.Timestamp analytics_at = 18; // Same as 19?
+  string update_service_id_broken = 17;
+  google.protobuf.Timestamp analytics_at = 18;
   google.protobuf.Timestamp analytics_last_at = 19;
   string analytics_checks = 20;
   int32 analytics_retries = 21;
   int32 last_gnip_check = 22;
   string library_update_id = 23;
   bool needs_approval = 24;
-  bool shared_next = 25; // Same as shared now?
-  bool shared_now = 26; // TODO: Naming conventions!
+  bool shared_next = 25;
+  bool shared_now = 26;
   bool needs_resizing = 27;
   bool partner_placement = 28;
   string partner_source = 29;
@@ -89,7 +89,7 @@ message Media {
 }
 
 message VideoDetails {
-    string duration = 1; // TODO: Use proper type
+    string duration = 1;
     string duration_millis = 2;
     int64 file_size = 3;
     int32 width = 4;

@@ -4,7 +4,7 @@ package collector;
 
 import "entities/funnel.proto";
 
-service EventsCollector {
+service EventCollector {
   rpc TrackFunnelEvent (FunnelEvent) returns (Response) {}
 }
 

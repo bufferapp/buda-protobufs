@@ -1,6 +1,6 @@
-# Buffer's Protocol Buffers
+# Buffer Unified Data Architecture Protocol Buffers
 
-Central repository for all Buffer's protocol buffers files.
+Central repository where Buffer's Data Architecture protobufs live.
 
 ## Resources
 

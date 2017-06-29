@@ -2,10 +2,10 @@ syntax = "proto3";
 
 package collector;
 
-import "entities/visit.proto";
+import "entities/funnel.proto";
 
 service EventsCollector {
-  rpc TrackVisit (Visit) returns (Response) {}
+  rpc TrackFunnelEvent (FunnelEvent) returns (Response) {}
 }
 
 message Response {

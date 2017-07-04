@@ -1,6 +1,8 @@
 syntax = "proto3";
 
-import "entities/utm.proto";
+package buda.entities;
+
+import "buda/entities/utm.proto";
 import "google/protobuf/timestamp.proto";
 
 message Visit {
@@ -8,7 +10,7 @@ message Visit {
   google.protobuf.Timestamp timestamp = 2;
   string uri = 3;
   string ip = 4;
-  Utm utm = 5;
+  buda.entities.Utm utm = 5;
   UserAgent user_agent = 6;
   string visitor_id = 7;
 }

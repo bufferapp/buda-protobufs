@@ -1,5 +1,7 @@
 syntax = "proto3";
 
+package buda.entities;
+
 message Utm {
     string source = 1;
     string medium = 2;

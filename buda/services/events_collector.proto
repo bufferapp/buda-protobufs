@@ -1,0 +1,13 @@
+syntax = "proto3";
+
+package buda.services;
+
+import "buda/entities/funnel.proto";
+
+service EventsCollector {
+  rpc TrackFunnelEvent (buda.entities.FunnelEvent) returns (Response) {}
+}
+
+message Response {
+  string message = 1;
+}

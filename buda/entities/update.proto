@@ -1,6 +1,8 @@
 syntax = "proto3";
 
-import "entities/utm.proto";
+package buda.entities;
+
+import "buda/entities/utm.proto";
 import "google/protobuf/timestamp.proto";
 
 message Update {
@@ -129,5 +131,5 @@ message ShorteningInfo {
     string shortener = 7;
     int32 time_taken_ms = 8;
     string tracking = 9;
-    Utm utm = 10;
+    buda.entities.Utm utm = 10;
 }

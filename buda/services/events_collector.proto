@@ -6,8 +6,8 @@ import "buda/entities/funnel.proto";
 import "buda/entities/funnel_event.proto";
 
 service EventsCollector {
-  rpc TrackFunnel (buda.entities.Funnel) returns (Response) {}
-  rpc TrackFunnelEvent (buda.entities.FunnelEvent) returns (Response) {}
+  rpc CollectFunnel (buda.entities.Funnel) returns (Response) {}
+  rpc CollectFunnelEvent (buda.entities.FunnelEvent) returns (Response) {}
 }
 
 message Response {

@@ -1,0 +1,7 @@
+syntax = "proto3";
+
+package buda.entities;
+
+message UUID {
+    string id = 1;
+}

@@ -2,18 +2,13 @@ syntax = "proto3";
 
 package buda.entities;
 
+import "buda/entities/uuid.proto";
 import "google/protobuf/timestamp.proto";
 
-message FunnelEvent {
-    string id = 1;
-    string user_id = 2;
+message Funnel {
+    UUID id = 1;
+    UUID user_id = 2;
     google.protobuf.Timestamp created_at = 3;
-    string funnel_id = 4;
-    string funnel_event_id = 5;
-    repeated FunnelTag tags = 6;
-}
-
-message FunnelTag {
-    string key = 1;
-    string value = 2;
+    string name = 4;
+    map<string, string> tags = 5;
 }

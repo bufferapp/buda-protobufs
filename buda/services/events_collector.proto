@@ -3,8 +3,10 @@ syntax = "proto3";
 package buda.services;
 
 import "buda/entities/funnel.proto";
+import "buda/entities/funnel_event.proto";
 
 service EventsCollector {
+  rpc CollectFunnel (buda.entities.Funnel) returns (Response) {}
   rpc CollectFunnelEvent (buda.entities.FunnelEvent) returns (Response) {}
 }
 

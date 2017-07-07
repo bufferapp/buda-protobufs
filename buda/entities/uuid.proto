@@ -2,6 +2,6 @@ syntax = "proto3";
 
 package buda.entities;
 
-message UUID {
+message Uuid {
     string id = 1;
 }

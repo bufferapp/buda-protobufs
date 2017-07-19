@@ -1,0 +1,13 @@
+syntax = "proto3";
+
+package buda.entities;
+
+import "buda/entities/uuid.proto";
+import "buda/entities/subscription.proto";
+import "buda/entities/payment.proto";
+
+message SubscriptionCreated {
+    Uuid id = 1;
+    Subscription subscription = 2;
+    Payment payment =3;
+}

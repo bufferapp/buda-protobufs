@@ -1,0 +1,10 @@
+syntax = "proto3";
+
+package buda.entities;
+
+import "buda/entities/uuid.proto";
+
+message SubscriptionCancelled {
+    Uuid id = 1;
+    Uuid subscription_id = 2;
+}

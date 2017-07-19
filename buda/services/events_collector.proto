@@ -4,10 +4,16 @@ package buda.services;
 
 import "buda/entities/funnel.proto";
 import "buda/entities/funnel_event.proto";
+import "buda/entities/subscription_created.proto";
+import "buda/entities/subscription_cancelled.proto";
 
 service EventsCollector {
   rpc CollectFunnel (buda.entities.Funnel) returns (Response) {}
   rpc CollectFunnelEvent (buda.entities.FunnelEvent) returns (Response) {}
+
+  //Subscription Events
+  rpc CollectSubscriptionCreated(buda.entities.SubscriptionCreated) returns (Response) {}
+  rpc CollectSubscriptionCancelled(buda.entities.SubscriptionCancelled) returns (Response) {}
 }
 
 message Response {

@@ -1,0 +1,12 @@
+syntax = "proto3";
+
+package buda.entities;
+
+import "buda/entities/uuid.proto";
+import "google/protobuf/timestamp.proto";
+
+message Subscription {
+    Uuid id = 1;
+    Uuid user_id = 2;
+    google.protobuf.Timestamp created_at = 3;
+}

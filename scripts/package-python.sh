@@ -1,4 +1,4 @@
-#!/bin/env bash
+#!/usr/bin/env
 
 set -eo pipefail
 
@@ -13,15 +13,17 @@ PROTO_DIR="buda"
 ENTITIES="$PROTO_DIR/entities/*.proto"
 SERVICES="$PROTO_DIR/services/*.proto"
 
+echo "Compiling entities"
 # Compile entities
-docker run --rm -v $PWD:$PWD -u 1000 -w $PWD \
+docker run --rm -i -v $PWD:$PWD -u 1000 -w $PWD \
     znly/protoc \
     --python_out=$PYTHON_DIR \
     -I. $ENTITIES
 
+echo "Compiling services"
 # Compile services
-docker run --rm -v $PWD:$PWD -u 1000 -w $PWD \
-    bufferapp/grpc-docker-python:latest \
+docker run --rm -i -v $PWD:$PWD -u 1000 -w $PWD \
+    davidgasquez/python-grpc-tools:latest \
 	python -m grpc_tools.protoc \
         --proto_path . \
 		--python_out $PYTHON_DIR \
@@ -29,7 +31,7 @@ docker run --rm -v $PWD:$PWD -u 1000 -w $PWD \
 		$SERVICES
 
 # Replace version
-sed -i "s/.*version.*/    version='$VERSION',/" $PYTHON_DIR/setup.py
+sed -i '' "s/.*version.*/    version='$VERSION',/" $PYTHON_DIR/setup.py
 
 # Compress the Python package
 tar -zcvf buda-python-$VERSION.tar.gz -C packages/python/ buda setup.py

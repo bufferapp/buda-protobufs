@@ -2,7 +2,7 @@ syntax = "proto3";
 
 package buda.entities;
 
-import "buda/entities/uuid.proto";
+import "buda/uuid.proto";
 import "google/protobuf/timestamp.proto";
 
 message Funnel {

@@ -11,13 +11,14 @@ PROTO_DIR="buda"
 
 # List all proto files
 ENTITIES="$PROTO_DIR/*.proto"
-SERVICES="$PROTO_DIR/events_collector.proto"
+SERVICES="$PROTO_DIR/*_service.proto"
 
 # Compile entities
 docker run --rm -v $PWD:$PWD -u 1000 -w $PWD \
     znly/protoc \
-    --python_out=$PYTHON_DIR \
-    -I. $ENTITIES
+    --proto_path . \
+    --python_out $PYTHON_DIR \
+    $ENTITIES
 
 #Compile services
 docker run --rm -v $PWD:$PWD -u 1000 -w $PWD \
@@ -27,9 +28,9 @@ docker run --rm -v $PWD:$PWD -u 1000 -w $PWD \
 		--python_out $PYTHON_DIR \
 		--grpc_python_out $PYTHON_DIR \
 		$SERVICES
-#
-# # Replace version
+
+# Replace version
 sed -i '' "s/.*version.*/    version='$VERSION',/" $PYTHON_DIR/setup.py
-#
-# # Compress the Python package
-tar -zcvf buda-python-$VERSION.tar.gz -C packages/python/ buda setup.py 
+
+# Compress the Python package
+tar -zcvf buda-python-$VERSION.tar.gz -C packages/python/ buda setup.py

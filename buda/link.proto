@@ -1,10 +1,10 @@
 syntax = "proto3";
 
-package buda.entities;
+package buda;
 
-import "uuid.proto";
+import "buda/uuid.proto";
 
 message Link {
   string target = 1;
-  Uuid target_id = 2;
+  buda.Uuid target_id = 2;
 }

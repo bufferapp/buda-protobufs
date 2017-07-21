@@ -13,5 +13,4 @@ package-python: clean-python
 
 .PHONY: clean-python
 clean-python:
-	@rm -rf $(PYTHON_DIR)/buda/entities/*pb2*.py
-	@rm -rf $(PYTHON_DIR)/buda/services/*pb2*.py
+	@rm -rf packages/python/buda/*pb2*.py

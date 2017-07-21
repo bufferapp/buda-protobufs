@@ -1,0 +1,18 @@
+syntax = "proto3";
+
+package buda.entities;
+
+import "buda/uuid.proto";
+import "buda/link.proto";
+import "google/protobuf/timestamp.proto";
+
+message FunnelEvent {
+    Uuid id = 1;
+    Uuid funnel_id = 2;
+    Uuid funnel_step_id = 3;
+    Uuid user_id = 4;
+    google.protobuf.Timestamp created_at = 5;
+    map<string, string> tags = 6;
+    bool funnel_end = 16;
+    repeated Link links = 17;
+}

@@ -2,7 +2,7 @@ syntax = "proto3";
 
 package buda;
 
-import "buda/uuid.proto";
+import "uuid.proto";
 
 message Link {
   string target = 1;

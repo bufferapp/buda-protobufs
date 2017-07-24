@@ -38,7 +38,7 @@ message Subscription {
     float term_value = 12;
     google.protobuf.Timestamp current_period_start = 13;
     google.protobuf.Timestamp current_period_end = 14;
-    SubscriptionManualPayment current_period_payment_dates = 15
-    SubscriptionManualPayment next_payment_due_at = 16;
-    SubscriptionManualPayment remaining_period_balance = 17;
+    SubscriptionManualPayment current_period_payment_dates = 16
+    SubscriptionManualPayment next_payment_due_at = 17;
+    SubscriptionManualPayment remaining_period_balance = 18;
 }

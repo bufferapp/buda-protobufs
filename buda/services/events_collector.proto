@@ -13,6 +13,7 @@ service EventsCollector {
 
   //Subscription Events
   rpc CollectSubscriptionCreated(buda.entities.SubscriptionCreated) returns (Response) {}
+  rpc CollectSubscriptionCreated(buda.entities.SubscriptionUpdated) returns (Response) {}
   rpc CollectSubscriptionCancelled(buda.entities.SubscriptionCancelled) returns (Response) {}
 }
 

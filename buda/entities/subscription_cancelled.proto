@@ -7,7 +7,7 @@ import "google/protobuf/timestamp.proto";
 
 message SubscriptionCancelled {
     Uuid id = 1;
-    Uuid subscription_id = 1;
-    Uuid user_id = 2;
-    google.protobuf.Timestamp recorded_at = 3;
+    Uuid subscription_id = 2;
+    Uuid user_id = 3;
+    google.protobuf.Timestamp created_at = 4;
 }

@@ -14,13 +14,13 @@ message Payment {
     Uuid subscription_id = 6;
     google.protobuf.Timestamp created_at = 7;
     enum PaymentType {
-      STRIPE = 0
-      APPLE = 1
-      ANDROID = 2
-      CHECK = 3
-      BANK = 4
-      PAYPAL = 5
-      }
+      STRIPE = 0;
+      APPLE = 1;
+      ANDROID = 2;
+      CHECK = 3;
+      BANK = 4;
+      PAYPAL = 5;
+    }
     PaymentType payment_type = 8;
     string payment_amount = 9;
     string payment_currency = 10;

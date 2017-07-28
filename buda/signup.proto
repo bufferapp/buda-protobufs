@@ -1,0 +1,16 @@
+syntax = "proto3";
+
+package buda;
+
+import "buda/uuid.proto";
+import "google/protobuf/timestamp.proto";
+
+
+message Signup {
+    Uuid id = 1;
+    Uuid user_id = 2;
+    Uuid visitor_id = 3;
+    Uuid legacy_visitor_id = 100; //buffer-web visitor_id, will be deprecated
+
+    google.protobuf.Timestamp created_at = 4;
+}

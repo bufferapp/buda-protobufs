@@ -1,0 +1,32 @@
+syntax = "proto3";
+
+import "buda/uuid.proto";
+import "buda/utm.proto";
+import "google/protobuf/timestamp.proto";
+
+package buda;
+
+message Visit {
+
+    message UserAgent {
+      string browser = 1;
+      string version = 2;
+    }
+
+    message Utm {
+        string source = 1;
+        string medium = 2;
+        string campaign = 3;
+        string content = 4;
+        string term = 5;
+    }
+
+    Uuid id = 1;
+    Uuid visitor_id = 2;
+    Uuid user_id = 3;
+    google.protobuf.Timestamp created_at = 4;
+    string uri = 5;
+    string ip = 6;
+    Utm utm = 7;
+    UserAgent user_agent = 8;
+}

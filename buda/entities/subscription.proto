@@ -7,12 +7,6 @@ import "buda/entities/uuid.proto";
 import "buda/entities/subscription_manual_payment.proto";
 
 message Subscription {
-    Uuid id = 1;
-    Uuid user_id = 2;
-    Uuid plan_id = 3;
-    string plan_name = 4;
-    string gateway_customer_id = 5;
-    Uuid subscription_id = 6;
     enum Status {
       TRIALING = 0;
       ACTIVE = 1;
@@ -20,20 +14,26 @@ message Subscription {
       CANCELED = 3;
       EXPIRED = 4;
     }
-    Status status = 7;
-    google.protobuf.Timestamp created_at = 8;
-    google.protobuf.Timestamp canceled_at = 9;
     enum PaymentSchedule {
       MONTHLY = 0;
       QUARTERLY = 1;
       BIANNUALLY = 2;
       ANNUALLY = 3;
     }
-    PaymentSchedule payment_schedule = 10;
     enum PaymentTerms {
       DUE_UPON_RECEIPT = 0;
       NET_30 = 1;
     }
+    Uuid id = 1;
+    Uuid user_id = 2;
+    Uuid plan_id = 3;
+    string plan_name = 4;
+    string gateway_customer_id = 5;
+    Uuid subscription_id = 6;
+    Status status = 7;
+    google.protobuf.Timestamp created_at = 8;
+    google.protobuf.Timestamp canceled_at = 9;
+    PaymentSchedule payment_schedule = 10;
     PaymentTerms payment_terms = 11;
     float term_value = 12;
     google.protobuf.Timestamp current_period_start = 13;

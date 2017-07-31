@@ -42,12 +42,100 @@ message FunnelEvent {
 	repeated Link links = 17;
 }
 
+message Payment {
+	enum PaymentType{
+		STRIPE = 0
+		APPLE = 1
+		ANDROID = 2
+		CHECK = 3
+		BANK = 4
+		PAYPAL = 5
+	}
+	Uuid id = 1;
+	Uuid user_id = 2;
+	Uuid plan_id = 3;
+	string plan_name = 4;
+	string gateway_customer_id = 5;
+	Uuid subscription_id = 6;
+	Timestamp created_at = 7;
+	PaymentType payment_type = 8;
+	string payment_amount = 9;
+	string payment_currency = 10;
+	int32 subscription_payment_sequence = 11;
+}
+
 message Signup {
 	Uuid id = 1;
 	Uuid user_id = 2;
 	Uuid visitor_id = 3;
 	Uuid legacy_visitor_id = 100;
 	Timestamp created_at = 4;
+}
+
+message SubscriptionManualPayment {
+	repeated Timestamp current_period_payment_dates = 1;
+	Timestamp next_payment_due_at = 2;
+	float remaining_period_balance = 3;
+}
+
+message Subscription {
+	enum Status{
+		TRIALING = 0
+		ACTIVE = 1
+		PAST_DUE = 2
+		CANCELED = 3
+		EXPIRED = 4
+	}
+	enum PaymentSchedule{
+		MONTHLY = 0
+		QUARTERLY = 1
+		BIANNUALLY = 2
+		ANNUALLY = 3
+	}
+	enum PaymentTerms{
+		DUE_UPON_RECEIPT = 0
+		NET_30 = 1
+	}
+	Uuid id = 1;
+	Uuid user_id = 2;
+	Uuid plan_id = 3;
+	string plan_name = 4;
+	string gateway_customer_id = 5;
+	Uuid subscription_id = 6;
+	Status status = 7;
+	Timestamp created_at = 8;
+	Timestamp canceled_at = 9;
+	PaymentSchedule payment_schedule = 10;
+	PaymentTerms payment_terms = 11;
+	float term_value = 12;
+	Timestamp current_period_start = 13;
+	Timestamp current_period_end = 14;
+	SubscriptionManualPayment current_period_payment_dates = 16;
+	SubscriptionManualPayment next_payment_due_at = 17;
+	SubscriptionManualPayment remaining_period_balance = 18;
+}
+
+message SubscriptionCancelled {
+	Uuid id = 1;
+	Uuid subscription_id = 2;
+	Uuid user_id = 3;
+	Timestamp created_at = 4;
+}
+
+message SubscriptionCreated {
+	Uuid id = 1;
+	Uuid user_id = 2;
+	Timestamp recorded_at = 3;
+	Subscription subscription = 4;
+	Payment payment = 5;
+}
+
+message SubscriptionUpdated {
+	Uuid id = 1;
+	Uuid user_id = 2;
+	Timestamp recorded_at = 3;
+	Subscription subscription = 4;
+	Payment payment = 5;
 }
 
 message Visit {
@@ -81,4 +169,6 @@ service EventsCollector {
 	rpc CollectFunnelEvent (FunnelEvent) returns (Response){}
 	rpc CollectVisit (Visit) returns (Response){}
 	rpc CollectSignup (Signup) returns (Response){}
+	rpc CollectSubscriptionCreated (SubscriptionCreated) returns (Response){}
+	rpc CollectSubscriptionCancelled (SubscriptionCancelled) returns (Response){}
 }

@@ -38,6 +38,7 @@ class CodeGenerator:
 def write_message(message, generator):
     generator.write("message {name}".format(name=message.name) + " {{")
     generator.write_block(message.nested_type, write_message)
+    generator.write_block(message.enum_type, write_enum)
     generator.write_block(message.field, write_field)
     generator.write("}}")
 
@@ -51,6 +52,26 @@ def write_method(method, generator):
         name=method.name,
         input=get_unqualified_name(method.input_type),
         output=get_unqualified_name(method.output_type)) + "{{}}")
+
+def write_field(field,generator):
+    type_name = get_unqualified_name(field.type_name) or map_scalar_type(field.type)
+    generator.write("{label}{type} {name} = {number};".format(
+        label='repeated ' if field.label == 3 else '',
+        type=type_name,
+        name=field.name,
+        number=field.number
+    ))
+
+def write_enum(enum,generator):
+    generator.write("enum {name}".format(name=enum.name) + "{{")
+    generator.write_block(enum.value, write_enum_value)
+    generator.write("}}")
+
+def write_enum_value(enum_value, generator):
+    generator.write("{name} = {number}".format(
+        name=enum_value.name,
+        number=enum_value.number
+    ))
 
 def map_scalar_type(type_num):
     mapping = {
@@ -71,14 +92,6 @@ def get_unqualified_name(type_name):
         return None
     return type_name.split('.')[-1]
 
-def write_field(field,generator):
-    type_name = get_unqualified_name(field.type_name) or map_scalar_type(field.type)
-    generator.write("{label}{type} {name} = {number};".format(
-        label='repeated ' if field.label == 3 else '',
-        type=type_name,
-        name=field.name,
-        number=field.number
-    ))
 
 if __name__ == '__main__':
     data = sys.stdin.buffer.read()

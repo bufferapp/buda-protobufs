@@ -6,13 +6,6 @@ import "google/protobuf/timestamp.proto";
 import "buda/entities/uuid.proto";
 
 message Payment {
-    Uuid id = 1;
-    Uuid user_id = 2;
-    Uuid plan_id = 3;
-    string plan_name = 4;
-    string gateway_customer_id = 5;
-    Uuid subscription_id = 6;
-    google.protobuf.Timestamp created_at = 7;
     enum PaymentType {
       STRIPE = 0;
       APPLE = 1;
@@ -21,6 +14,14 @@ message Payment {
       BANK = 4;
       PAYPAL = 5;
     }
+
+    Uuid id = 1;
+    Uuid user_id = 2;
+    Uuid plan_id = 3;
+    string plan_name = 4;
+    string gateway_customer_id = 5;
+    Uuid subscription_id = 6;
+    google.protobuf.Timestamp created_at = 7;
     PaymentType payment_type = 8;
     string payment_amount = 9;
     string payment_currency = 10;

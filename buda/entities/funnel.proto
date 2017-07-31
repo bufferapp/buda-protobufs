@@ -2,12 +2,12 @@ syntax = "proto3";
 
 package buda;
 
-import "buda/uuid.proto";
+import "buda/entities/uuid.proto";
 import "google/protobuf/timestamp.proto";
 
 message Funnel {
-    buda.Uuid id = 1;
-    buda.Uuid user_id = 2;
+    Uuid id = 1;
+    Uuid user_id = 2;
     google.protobuf.Timestamp created_at = 3;
     string name = 4;
     map<string, string> tags = 5;

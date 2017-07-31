@@ -1,0 +1,19 @@
+syntax = "proto3";
+
+package buda;
+
+import "buda/entities/funnel.proto";
+import "buda/entities/funnel_event.proto";
+import "buda/entities/visit.proto";
+import "buda/entities/signup.proto";
+
+service EventsCollector {
+  rpc CollectFunnel (Funnel) returns (Response) {}
+  rpc CollectFunnelEvent (FunnelEvent) returns (Response) {}
+  rpc CollectVisit(Visit) returns (Response) {}
+  rpc CollectSignup(Signup) returns (Response) {}
+}
+
+message Response {
+  string message = 1;
+}

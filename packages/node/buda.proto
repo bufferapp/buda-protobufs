@@ -1,0 +1,84 @@
+syntax = "proto3";
+package buda;
+
+message Uuid {
+	string id = 1;
+}
+
+message Timestamp {
+	int64 seconds = 1;
+	int32 nanos = 2;
+}
+
+message Funnel {
+	message TagsEntry {
+		string key = 1;
+		string value = 2;
+	}
+	Uuid id = 1;
+	Uuid user_id = 2;
+	Timestamp created_at = 3;
+	string name = 4;
+	repeated TagsEntry tags = 5;
+}
+
+message Link {
+	string target = 1;
+	Uuid target_id = 2;
+}
+
+message FunnelEvent {
+	message TagsEntry {
+		string key = 1;
+		string value = 2;
+	}
+	Uuid id = 1;
+	Uuid funnel_id = 2;
+	Uuid funnel_step_id = 3;
+	Uuid user_id = 4;
+	Timestamp created_at = 5;
+	repeated TagsEntry tags = 6;
+	bool funnel_end = 16;
+	repeated Link links = 17;
+}
+
+message Signup {
+	Uuid id = 1;
+	Uuid user_id = 2;
+	Uuid visitor_id = 3;
+	Uuid legacy_visitor_id = 100;
+	Timestamp created_at = 4;
+}
+
+message Visit {
+	message UserAgent {
+		string browser = 1;
+		string version = 2;
+	}
+	message Utm {
+		string source = 1;
+		string medium = 2;
+		string campaign = 3;
+		string content = 4;
+		string term = 5;
+	}
+	Uuid id = 1;
+	Uuid visitor_id = 2;
+	Uuid user_id = 3;
+	Timestamp created_at = 4;
+	string uri = 5;
+	string ip = 6;
+	Utm utm = 7;
+	UserAgent user_agent = 8;
+}
+
+message Response {
+	string message = 1;
+}
+
+service EventsCollector {
+	rpc CollectFunnel (Funnel) returns (Response){}
+	rpc CollectFunnelEvent (FunnelEvent) returns (Response){}
+	rpc CollectVisit (Visit) returns (Response){}
+	rpc CollectSignup (Signup) returns (Response){}
+}

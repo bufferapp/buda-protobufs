@@ -10,21 +10,20 @@ PYTHON_DIR="packages/python"
 PROTO_DIR="buda"
 
 # List all proto files
-ENTITIES="$PROTO_DIR/*.proto"
-SERVICES="$PROTO_DIR/*_service.proto"
+ENTITIES="$PROTO_DIR/entities/*.proto"
+SERVICES="$PROTO_DIR/services/*.proto"
 
 # Compile entities
 docker run --rm -v $PWD:$PWD -u 1000 -w $PWD \
     znly/protoc \
-    --proto_path . \
-    --python_out $PYTHON_DIR \
-    $ENTITIES
+    --python_out=$PYTHON_DIR \
+    -I. $ENTITIES
 
-#Compile services
+# Compile services
 docker run --rm -v $PWD:$PWD -u 1000 -w $PWD \
-  grpc/python:1.4 \
-	python -m grpc_tools.protoc \
-        --proto_path . \
+    grpc/python:1.4 \
+    python -m grpc_tools.protoc \
+    --proto_path . \
 		--python_out $PYTHON_DIR \
 		--grpc_python_out $PYTHON_DIR \
 		$SERVICES

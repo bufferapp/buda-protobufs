@@ -1,0 +1,13 @@
+syntax = "proto3";
+
+package buda;
+
+import "google/protobuf/timestamp.proto";
+import "buda/entities/uuid.proto";
+
+message SubscriptionCancelled {
+    Uuid id = 1;
+    Uuid subscription_id = 2;
+    Uuid user_id = 3;
+    google.protobuf.Timestamp created_at = 4;
+}

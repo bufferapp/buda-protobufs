@@ -44,12 +44,12 @@ message FunnelEvent {
 
 message Payment {
 	enum PaymentType{
-		STRIPE = 0
-		APPLE = 1
-		ANDROID = 2
-		CHECK = 3
-		BANK = 4
-		PAYPAL = 5
+		STRIPE = 0;
+		APPLE = 1;
+		ANDROID = 2;
+		CHECK = 3;
+		BANK = 4;
+		PAYPAL = 5;
 	}
 	Uuid id = 1;
 	Uuid user_id = 2;
@@ -80,21 +80,21 @@ message SubscriptionManualPayment {
 
 message Subscription {
 	enum Status{
-		TRIALING = 0
-		ACTIVE = 1
-		PAST_DUE = 2
-		CANCELED = 3
-		EXPIRED = 4
+		TRIALING = 0;
+		ACTIVE = 1;
+		PAST_DUE = 2;
+		CANCELED = 3;
+		EXPIRED = 4;
 	}
 	enum PaymentSchedule{
-		MONTHLY = 0
-		QUARTERLY = 1
-		BIANNUALLY = 2
-		ANNUALLY = 3
+		MONTHLY = 0;
+		QUARTERLY = 1;
+		BIANNUALLY = 2;
+		ANNUALLY = 3;
 	}
 	enum PaymentTerms{
-		DUE_UPON_RECEIPT = 0
-		NET_30 = 1
+		DUE_UPON_RECEIPT = 0;
+		NET_30 = 1;
 	}
 	Uuid id = 1;
 	Uuid user_id = 2;

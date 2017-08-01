@@ -68,7 +68,7 @@ def write_enum(enum,generator):
     generator.write("}}")
 
 def write_enum_value(enum_value, generator):
-    generator.write("{name} = {number}".format(
+    generator.write("{name} = {number};".format(
         name=enum_value.name,
         number=enum_value.number
     ))

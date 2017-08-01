@@ -28,4 +28,5 @@ message Visit {
     string ip = 6;
     Utm utm = 7;
     UserAgent user_agent = 8;
+    string referrer =9;
 }

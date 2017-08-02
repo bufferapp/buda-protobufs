@@ -4,14 +4,20 @@ package buda.entities;
 
 import "buda/entities/uuid.proto";
 import "google/protobuf/timestamp.proto";
-import "buda/entities/subscription.proto";
 import "buda/entities/payment.proto";
 
 message SubscriptionCreated {
     Uuid id = 1;
     Uuid user_id = 2;
-    google.protobuf.Timestamp recorded_at = 3;
-    Subscription subscription = 4;
-    Payment payment = 5;
-
+    Uuid plan_id = 3;
+    string plan_name = 4;
+    string gateway_customer_id = 5;
+    Uuid subscription_id = 6;
+    Status status = 7;
+    google.protobuf.Timestamp created_at = 8;
+    PaymentTermsAndSchedule payment_schedule = 9;
+    float term_value = 10;
+    google.protobuf.Timestamp initial_period_start = 11;
+    google.protobuf.Timestamp initial_period_end = 12;
+    Payment payment = 13;
 }

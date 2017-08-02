@@ -1,0 +1,12 @@
+package buda.entities;
+
+message Status {
+    enum Status {
+      TRIALING = 0;
+      ACTIVE = 1;
+      PAST_DUE = 2;
+      CANCELED = 3;
+      EXPIRED = 4;
+    }
+    Status status = 1;
+  }

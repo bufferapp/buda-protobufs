@@ -6,7 +6,7 @@ import "buda/entities/uuid.proto";
 import "google/protobuf/timestamp.proto";
 import "buda/entities/payment.proto";
 import "buda/entities/subscription_status.proto";
-import "buda/entities/payment_terms.proto"
+import "buda/entities/payment_terms.proto";
 import "buda/entities/payment_schedule.proto";
 
 message SubscriptionCreated {

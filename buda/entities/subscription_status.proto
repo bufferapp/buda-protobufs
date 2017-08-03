@@ -1,0 +1,11 @@
+syntax = "proto3";
+
+package buda;
+
+enum SubscriptionStatus {
+  TRIALING = 0;
+  ACTIVE = 1;
+  PAST_DUE = 2;
+  CANCELED = 3;
+  EXPIRED = 4;
+}

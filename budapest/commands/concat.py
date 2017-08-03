@@ -110,6 +110,7 @@ if __name__ == '__main__':
 
     messages_seen = []
     services_seen = []
+    enums_seen = []
     for proto_file in request.proto_file:
         for item in proto_file.message_type:
             if item.name not in messages_seen:
@@ -121,6 +122,11 @@ if __name__ == '__main__':
                 generator.write("")
                 services_seen.append(item.name)
                 write_service(item, generator)
+        for item in proto_file.enum_type:
+            if item.name not in enums_seen:
+                generator.write("")
+                enums_seen.append(item.name)
+                write_enum(item, generator)
 
     f.content = (generator.output())
     output = response.SerializeToString()

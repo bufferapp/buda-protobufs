@@ -18,7 +18,7 @@ message SubscriptionCreated {
       string plan_name = 5;
       string gateway_customer_id = 6;
       PaymentTerms payment_terms = 7;
-      PaymnetSchedule payment_schedule = 8;
+      PaymentSchedule payment_schedule = 8;
       float term_value = 9;
       google.protobuf.Timestamp initial_period_start = 10;
       google.protobuf.Timestamp initial_period_end = 11;

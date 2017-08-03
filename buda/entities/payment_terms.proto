@@ -1,0 +1,9 @@
+syntax = "proto3";
+
+package buda;
+
+enum PaymentTerms {
+  DUE_UPON_RECEIPT = 0;
+  NET_30 = 1;
+  NET_60 = 2;
+}

@@ -1,0 +1,10 @@
+syntax = "proto3";
+
+package buda;
+
+enum PaymentSchedule {
+  MONTHLY = 0;
+  QUARTERLY = 1;
+  BIANNUALLY = 2;
+  ANNUALLY = 3;
+}

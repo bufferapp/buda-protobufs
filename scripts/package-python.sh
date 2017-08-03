@@ -22,10 +22,10 @@ docker run --rm -i -v $PWD:$PWD -u 1000 -w $PWD \
 
 echo "Compiling services"
 # Compile services
-docker run --rm -i -v $PWD:$PWD -u 1000 -w $PWD \
-    davidgasquez/python-grpc-tools:latest \
-	python -m grpc_tools.protoc \
-        --proto_path . \
+docker run --rm -v $PWD:$PWD -u 1000 -w $PWD \
+    grpc/python:1.4 \
+    python -m grpc_tools.protoc \
+    --proto_path . \
 		--python_out $PYTHON_DIR \
 		--grpc_python_out $PYTHON_DIR \
 		$SERVICES

@@ -1,6 +1,6 @@
 syntax = "proto3";
 
-package buda.entities;
+package buda;
 
 import "buda/entities/uuid.proto";
 

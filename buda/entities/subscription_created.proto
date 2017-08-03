@@ -5,7 +5,7 @@ package buda;
 import "buda/entities/uuid.proto";
 import "google/protobuf/timestamp.proto";
 import "buda/entities/payment.proto";
-import "buda/entities/status.proto";
+import "buda/entities/subscription_status.proto";
 import "buda/entities/payment_terms_and_schedule.proto";
 
 message SubscriptionCreated {
@@ -15,7 +15,7 @@ message SubscriptionCreated {
     string plan_name = 4;
     string gateway_customer_id = 5;
     Uuid subscription_id = 6;
-    Status status = 7;
+    SubscriptionStatus status = 7;
     google.protobuf.Timestamp created_at = 8;
     PaymentTermsAndSchedule payment_schedule = 9;
     float term_value = 10;

@@ -1,19 +1,19 @@
 syntax = "proto3";
 
-package buda.entities;
+package buda;
 
 message PaymentTermsAndSchedule {
   enum PaymentTerms {
-    DUE_UPON_RECEIPT = 0
-    NET_30 = 1
-    NET_60 = 2
+    DUE_UPON_RECEIPT = 0;
+    NET_30 = 1;
+    NET_60 = 2;
   }
   PaymentTerms payment_terms = 1;
   enum PaymentSchedule {
-    MONTHLY = 0
-    QUARTERLY = 1
-    BIANNUALLY = 2
-    ANNUALLY = 3
+    MONTHLY = 0;
+    QUARTERLY = 1;
+    BIANNUALLY = 2;
+    ANNUALLY = 3;
   }
   PaymentSchedule payment_schedule = 2;
 }

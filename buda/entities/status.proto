@@ -1,4 +1,6 @@
-package buda.entities;
+syntax = "proto3";
+
+package buda;
 
 message Status {
     enum Status {

@@ -1,13 +1,13 @@
 syntax = "proto3";
 
-package buda.entities;
+package buda;
 
 import "buda/entities/uuid.proto";
 import "google/protobuf/timestamp.proto";
-import "buda/entities/subscription.proto";
 import "buda/entities/payment.proto";
+import "buda/entities/status.proto";
 
-message UpdatedSubscriptionPeriod {
+message SubscriptionPeriodUpdated {
     Uuid id = 1;
     Uuid user_id = 2;
     Uuid subscription_id = 3;

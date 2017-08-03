@@ -25,5 +25,4 @@ message Payment {
     PaymentType payment_type = 8;
     string payment_amount = 9;
     string payment_currency = 10;
-    PaymentTermsAndSchedule payment_terms_and_schedule = 11;
 }

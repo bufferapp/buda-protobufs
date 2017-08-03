@@ -8,6 +8,7 @@ import "buda/entities/visit.proto";
 import "buda/entities/signup.proto";
 import "buda/entities/subscription_created.proto";
 import "buda/entities/subscription_cancelled.proto";
+import "buda/entities/subscription_period_updated.proto";
 
 
 service EventsCollector {
@@ -19,7 +20,7 @@ service EventsCollector {
   //Subscription Events
   rpc CollectSubscriptionCreated(SubscriptionCreated) returns (Response) {}
   rpc CollectSubscriptionPeriodUpdated(SubscriptionPeriodUpdated) returns (Response) {}
-  rpc CollectSubscriptionCancelled(entities.SubscriptionCancelled) returns (Response) {}
+  rpc CollectSubscriptionCancelled(SubscriptionCancelled) returns (Response) {}
 }
 
 message Response {

@@ -2,8 +2,11 @@ syntax = "proto3";
 
 package buda;
 
+import "buda/entities/uuid.proto";
 import "google/protobuf/timestamp.proto";
 import "buda/entities/payment.proto";
+import "buda/entities/status.proto";
+import "buda/entities/payment_terms_and_schedule.proto";
 
 message SubscriptionCreated {
     Uuid id = 1;

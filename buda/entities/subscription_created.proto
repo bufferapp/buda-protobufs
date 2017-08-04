@@ -26,9 +26,9 @@ message SubscriptionCreated {
 
     message Payment {
         Uuid id = 1;
-        PaymentType payment_type = 8;
-        float payment_amount = 9;
-        string payment_currency = 10;
+        PaymentType payment_type = 2;
+        float payment_amount = 3;
+        string payment_currency = 4;
     }
 
     Uuid id = 1;

@@ -42,27 +42,6 @@ message FunnelEvent {
 	repeated Link links = 17;
 }
 
-message Payment {
-	enum PaymentType{
-		STRIPE = 0;
-		APPLE = 1;
-		ANDROID = 2;
-		CHECK = 3;
-		BANK = 4;
-		PAYPAL = 5;
-	}
-	Uuid id = 1;
-	Uuid user_id = 2;
-	Uuid plan_id = 3;
-	string plan_name = 4;
-	string gateway_customer_id = 5;
-	Uuid subscription_id = 6;
-	Timestamp created_at = 7;
-	PaymentType payment_type = 8;
-	string payment_amount = 9;
-	string payment_currency = 10;
-}
-
 enum PaymentSchedule{
 	MONTHLY = 0;
 	QUARTERLY = 1;
@@ -74,6 +53,15 @@ enum PaymentTerms{
 	DUE_UPON_RECEIPT = 0;
 	NET_30 = 1;
 	NET_60 = 2;
+}
+
+enum PaymentType{
+	STRIPE = 0;
+	APPLE = 1;
+	ANDROID = 2;
+	CHECK = 3;
+	BANK = 4;
+	PAYPAL = 5;
 }
 
 message Signup {
@@ -113,6 +101,12 @@ message SubscriptionCreated {
 		Timestamp initial_period_start = 10;
 		Timestamp initial_period_end = 11;
 	}
+	message Payment {
+		Uuid id = 1;
+		PaymentType payment_type = 2;
+		float payment_amount = 3;
+		string payment_currency = 4;
+	}
 	Uuid id = 1;
 	Uuid user_id = 2;
 	Timestamp created_at = 3;
@@ -126,6 +120,12 @@ message SubscriptionPeriodUpdated {
 		SubscriptionStatus status = 2;
 		Timestamp new_period_start = 3;
 		Timestamp new_period_end = 4;
+	}
+	message Payment {
+		Uuid id = 1;
+		PaymentType payment_type = 2;
+		float payment_amount = 3;
+		string payment_currency = 4;
 	}
 	Uuid id = 1;
 	Uuid user_id = 2;

@@ -1,0 +1,12 @@
+syntax = "proto3";
+
+package buda;
+
+enum PaymentType {
+  STRIPE = 0;
+  APPLE = 1;
+  ANDROID = 2;
+  CHECK = 3;
+  BANK = 4;
+  PAYPAL = 5;
+}

@@ -4,10 +4,10 @@ package buda;
 
 import "buda/entities/uuid.proto";
 import "google/protobuf/timestamp.proto";
-import "buda/entities/payment.proto";
 import "buda/entities/subscription_status.proto";
 import "buda/entities/payment_terms.proto";
 import "buda/entities/payment_schedule.proto";
+import "buda/entities/payment_type.proto";
 
 message SubscriptionCreated {
     message Subscription {
@@ -23,6 +23,14 @@ message SubscriptionCreated {
       google.protobuf.Timestamp initial_period_start = 10;
       google.protobuf.Timestamp initial_period_end = 11;
     }
+
+    message Payment {
+        Uuid id = 1;
+        PaymentType payment_type = 8;
+        float payment_amount = 9;
+        string payment_currency = 10;
+    }
+
     Uuid id = 1;
     Uuid user_id = 2;
     google.protobuf.Timestamp created_at = 3;

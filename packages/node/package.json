@@ -1,6 +1,6 @@
 {
   "name": "@bufferapp/buda",
-  "version": "0.1.1-beta-7",
+  "version": "0.1.1-beta-8",
   "description": "The protobufs for the Buffer Unified Data Architecture",
   "main": "index.js",
   "scripts": {

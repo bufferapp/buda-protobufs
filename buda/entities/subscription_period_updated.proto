@@ -4,8 +4,9 @@ package buda;
 
 import "buda/entities/uuid.proto";
 import "google/protobuf/timestamp.proto";
-import "buda/entities/payment.proto";
 import "buda/entities/subscription_status.proto";
+import "buda/entities/payment_type.proto";
+
 
 message SubscriptionPeriodUpdated {
     message Subscription {
@@ -13,6 +14,13 @@ message SubscriptionPeriodUpdated {
       SubscriptionStatus status = 2;
       google.protobuf.Timestamp new_period_start = 3;
       google.protobuf.Timestamp new_period_end = 4;
+    }
+
+    message Payment {
+        Uuid id = 1;
+        PaymentType payment_type = 2;
+        float payment_amount = 3;
+        string payment_currency = 4;
     }
     Uuid id = 1;
     Uuid user_id = 2;

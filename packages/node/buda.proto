@@ -103,9 +103,9 @@ message SubscriptionCreated {
 	}
 	message Payment {
 		Uuid id = 1;
-		PaymentType payment_type = 2;
-		float payment_amount = 3;
-		string payment_currency = 4;
+		PaymentType type = 2;
+		float amount = 3;
+		string currency = 4;
 	}
 	Uuid id = 1;
 	Uuid user_id = 2;
@@ -123,9 +123,9 @@ message SubscriptionPeriodUpdated {
 	}
 	message Payment {
 		Uuid id = 1;
-		PaymentType payment_type = 2;
-		float payment_amount = 3;
-		string payment_currency = 4;
+		PaymentType type = 2;
+		float amount = 3;
+		string currency = 4;
 	}
 	Uuid id = 1;
 	Uuid user_id = 2;

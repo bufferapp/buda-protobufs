@@ -31,7 +31,11 @@ docker run --rm -v $PWD:$PWD -u 1000 -w $PWD \
 		$SERVICES
 
 # Replace version
-sed -i '' "s/.*version.*/    version='$VERSION',/" $PYTHON_DIR/setup.py
+if [ "$(uname)" == "Darwin" ]; then #on a mac
+  sed -i '' "s/.*version.*/    version='$VERSION',/" $PYTHON_DIR/setup.py
+else
+  sed -i "s/.*version.*/    version='$VERSION',/" $PYTHON_DIR/setup.py
+fi
 
 # Compress the Python package
 tar -zcvf buda-python-$VERSION.tar.gz -C packages/python/ buda setup.py

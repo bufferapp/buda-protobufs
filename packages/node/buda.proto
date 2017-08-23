@@ -146,6 +146,11 @@ message Visit {
 		string content = 4;
 		string term = 5;
 	}
+	message Experiment {
+		string id = 1;
+		string name = 2;
+		bool enabled = 3;
+	}
 	Uuid id = 1;
 	Uuid visitor_id = 2;
 	Uuid user_id = 3;
@@ -155,6 +160,8 @@ message Visit {
 	Utm utm = 7;
 	UserAgent user_agent = 8;
 	string referrer = 9;
+	string domain = 10;
+	repeated Experiment experiments = 11;
 }
 
 message Response {

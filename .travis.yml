@@ -16,5 +16,4 @@ deploy:
     skip_cleanup: true
     script: "make publish-python"
     on:
-      tags: true
-      all_branches: true
+      branch: master

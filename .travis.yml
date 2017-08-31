@@ -5,7 +5,7 @@ python: 3.6
 install:
     - "pip install twine"
 
-before_deploy:
+script:
     - "make package-python"
 
 deploy:

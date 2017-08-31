@@ -9,4 +9,6 @@ before_deploy:
     - "make package-python"
 
 deploy:
-    - "make publish-python"
+  - provider: script
+    skip_cleanup: true
+    script: "make publish-python"

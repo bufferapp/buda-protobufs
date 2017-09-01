@@ -8,4 +8,4 @@ VERSION=$(cat VERSION)
 # Upload package to Pypi
 cd packages/python
 python setup.py sdist
-twine upload dist//buda-$VERSION.tar.gz
+twine upload dist/buffer_buda-$VERSION.tar.gz

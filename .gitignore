@@ -104,6 +104,6 @@ ENV/
 # mypy
 .mypy_cache/
 
-#node.js
+#npm
 .config
 .npmrc

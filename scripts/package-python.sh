@@ -1,4 +1,4 @@
-#!/usr/bin/env sh
+#!/usr/bin/env bash
 
 set -eo pipefail
 
@@ -15,14 +15,14 @@ SERVICES="$PROTO_DIR/services/*.proto"
 
 echo "Compiling entities"
 # Compile entities
-docker run --rm -i -v $PWD:$PWD -u 1000 -w $PWD \
+docker run --rm -i -v $PWD:$PWD -w $PWD \
     znly/protoc \
     --python_out=$PYTHON_DIR \
     -I. $ENTITIES
 
 echo "Compiling services"
 # Compile services
-docker run --rm -v $PWD:$PWD -u 1000 -w $PWD \
+docker run --rm -v $PWD:$PWD -w $PWD \
     grpc/python:1.4 \
     python -m grpc_tools.protoc \
     --proto_path . \

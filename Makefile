@@ -10,7 +10,11 @@ help:
 
 .PHONY: package-python
 package-python: clean-python
-	./scripts/package-python.sh
+	@./scripts/package-python.sh
+
+.PHONY: publish-python
+publish-python:
+	@./scripts/publish-python.sh
 
 .PHONY: clean-python
 clean-python:

@@ -17,3 +17,6 @@ deploy:
     script: "make publish-python"
     on:
       branch: master
+
+notifications:
+  email: false

@@ -1,0 +1,22 @@
+language: python
+
+python: 3.6
+
+services:
+  - docker
+
+install:
+    - "pip install twine"
+
+script:
+    - "make package-python"
+
+deploy:
+  - provider: script
+    skip_cleanup: true
+    script: "make publish-python"
+    on:
+      branch: master
+
+notifications:
+  email: false

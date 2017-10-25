@@ -1,0 +1,23 @@
+syntax = "proto3";
+
+package buda;
+
+import "buda/entities/uuid.proto";
+import "buda/entities/stripe_subscription.proto";
+import "google/protobuf/timestamp.proto";
+
+message StripeSubscriptionEvent {
+    enum Type {
+        CREATED = 0;
+        UPDATED = 1;
+        DELETED = 3;
+        TRIAL_WILL_END = 4;
+    }
+    Uuid id = 1;
+    string api_version = 2;
+    google.protobuf.Timestamp created_at = 3;
+    Type type = 4;
+    StripeSubscription subscription = 5;
+    bool livemode = 6;
+    int32 pending_webhooks = 7;
+}

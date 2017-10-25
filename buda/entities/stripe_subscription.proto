@@ -1,0 +1,98 @@
+syntax = "proto3";
+
+package buda;
+
+import "buda/entities/uuid.proto";
+import "google/protobuf/timestamp.proto";
+
+message StripeSubscription {
+    enum Status {
+        TRIALING = 0;
+        ACTIVE = 1;
+        PAST_DUE = 2;
+        CANCELED = 3;
+        UNPAID = 4;
+    }
+
+    message Coupon {
+        enum Duration {
+            FOREVER = 0;
+            ONCE = 1;
+            REPEATING = 2;
+        }
+
+        Uuid id = 1;
+        int64 amount_off = 2;
+        google.protobuf.Timestamp created_at = 3;
+        string currency = 4;
+        Duration duration = 5;
+        int32 duration_in_months = 6;
+        bool livemode = 7;
+        int32 max_redemptions = 8;
+        map<string, string> metadata = 9;
+        int32 percent_off = 10;
+        google.protobuf.Timestamp redeem_by_at = 11;
+        int64 times_redeemed = 12;
+        bool valid = 13;
+
+    }
+
+    message Discount {
+       Coupon coupon = 1;
+       Uuid customer_id = 2;
+       google.protobuf.Timestamp start_at = 3;
+       google.protobuf.Timestamp end_at = 4;
+       Uuid subscription_id = 5;
+    }
+
+    message Plan {
+        enum Interval {
+          DAY = 0;
+          WEEK = 1;
+          MONTH = 2;
+          YEAR = 3;
+        }
+        Uuid id = 1;
+        int64 amount = 2;
+        google.protobuf.Timestamp created_at = 3;
+        string currency = 4;
+        Interval interval = 5;
+        int32 interval_count = 6;
+        bool livemode = 7;
+        map<string, string> metadata = 8;
+        string name = 9;
+        string statement_descriptor = 10;
+    }
+
+    message Item {
+        Uuid id = 1;
+        google.protobuf.Timestamp created_at = 2;
+        map<string, string> metadata = 3;
+        Plan plan = 4;
+
+    }
+
+
+    Uuid id = 1;
+    float application_fee_percent = 2;
+    bool cancel_at_period_end = 3;
+    google.protobuf.Timestamp canceled_at = 4;
+    google.protobuf.Timestamp created_at = 5;
+    google.protobuf.Timestamp current_period_end_at = 6;
+    google.protobuf.Timestamp current_period_start_at = 7;
+    Uuid customer_id = 8;
+    Discount discount = 9;
+    google.protobuf.Timestamp ended_at = 10;
+    repeated Item items = 11;
+    bool livemode = 12;
+    map<string, string> metadata = 13;
+    Plan plan = 14;
+    int32 quantity = 15;
+    google.protobuf.Timestamp start_at = 16;
+    Status status = 17;
+    float tax_percent = 18;
+    google.protobuf.Timestamp trial_end_at = 19;
+    google.protobuf.Timestamp trial_start_at = 20;
+}
+
+

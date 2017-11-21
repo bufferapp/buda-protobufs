@@ -1,0 +1,15 @@
+syntax = "proto3";
+
+package buda;
+
+import "buda/entities/uuid.proto";
+import "google/protobuf/timestamp.proto";
+
+message ActionTaken {
+    Uuid id = 1;
+    string application = 2;
+    string location = 3;
+    string action = 4;
+    map<string, string> metadata = 5;
+    google.protobuf.Timestamp created_at = 6;
+}

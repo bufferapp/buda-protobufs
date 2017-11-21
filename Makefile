@@ -22,4 +22,4 @@ clean-python:
 
 .PHONY: package-node
 package-node:
-	./scripts/package-node.sh
+	@./scripts/package-node.sh

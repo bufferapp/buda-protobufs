@@ -6,4 +6,9 @@ const buda = require('./index')
 assert.ok(Object.keys(buda).length > 0)
 assert.ok(buda.EventsCollector)
 
+// Test some message types
+assert.ok(buda.Uuid)
+assert.ok(buda.Signup)
+assert.ok(buda.Visit)
+
 console.log('Test passed')

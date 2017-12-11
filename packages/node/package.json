@@ -1,6 +1,6 @@
 {
   "name": "@bufferapp/buda",
-  "version": "0.4.5",
+  "version": "0.4.5-rc-1",
   "description": "The protobufs for the Buffer Unified Data Architecture",
   "main": "index.js",
   "scripts": {
@@ -14,7 +14,7 @@
   "author": "Dan Farrelly <daniel.j.farrelly@gmail.com> (http://danfarrelly.nyc)",
   "license": "MIT",
   "dependencies": {
-    "grpc": "^1.4.1",
-    "protobufjs": "dcodeIO/ProtoBuf.js"
+    "grpc": "~1.6.0",
+    "protobufjs": "~6.8.0"
   }
 }

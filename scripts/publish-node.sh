@@ -26,5 +26,5 @@ docker run -it --rm \
     -v $NPMRC_PATH:/root/.npmrc \
     -v $PWD/packages/node:/app \
     -w /app \
-    node:8.4-alpine \
+    node:8-alpine \
     $COMMAND

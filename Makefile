@@ -12,6 +12,7 @@ help:
 	@echo -e "  test-node                 Tests the Node.js package"
 	@echo -e "  publish-node              Publishes the Nodejs package to npm"
 	@echo -e "  packages                  Create Python and Node.js packages"
+	@echo -e "  publish                   Publish Python and Node.js packages"
 
 .PHONY: package-python
 package-python: clean-python
@@ -43,3 +44,6 @@ publish-node:
 
 .PHONY: packages
 packages: package-node package-python
+
+.PHONY: publish
+publish: publish-node publish-python

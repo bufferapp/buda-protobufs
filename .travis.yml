@@ -12,6 +12,7 @@ install:
 
 script:
     - "make package-python"
+    - "make setup-node"
     - "make package-node"
     - "make test-node"
 

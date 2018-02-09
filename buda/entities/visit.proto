@@ -37,4 +37,5 @@ message Visit {
     string referrer = 9;
     string domain = 10;
     repeated Experiment experiments = 11;
+    string source = 12;
 }

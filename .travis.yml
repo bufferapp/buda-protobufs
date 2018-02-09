@@ -25,11 +25,13 @@ deploy:
     script: "make publish-python"
     on:
       branch: master
+      tags: true
   - provider: script
     skip_cleanup: true
     script: "make publish-node"
     on:
       branch: master
+      tags: true
 
 notifications:
   email: false

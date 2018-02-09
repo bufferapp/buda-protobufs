@@ -10,6 +10,19 @@ message Timestamp {
 	int32 nanos = 2;
 }
 
+message ActionTaken {
+	message MetadataEntry {
+		string key = 1;
+		string value = 2;
+	}
+	Uuid id = 1;
+	string application = 2;
+	string location = 3;
+	string action = 4;
+	repeated MetadataEntry metadata = 5;
+	Timestamp created_at = 6;
+}
+
 message Funnel {
 	message TagsEntry {
 		string key = 1;
@@ -173,6 +186,7 @@ service EventsCollector {
 	rpc CollectFunnelEvent (FunnelEvent) returns (Response){}
 	rpc CollectVisit (Visit) returns (Response){}
 	rpc CollectSignup (Signup) returns (Response){}
+	rpc CollectActionTaken (ActionTaken) returns (Response){}
 	rpc CollectSubscriptionCreated (SubscriptionCreated) returns (Response){}
 	rpc CollectSubscriptionPeriodUpdated (SubscriptionPeriodUpdated) returns (Response){}
 	rpc CollectSubscriptionCancelled (SubscriptionCancelled) returns (Response){}

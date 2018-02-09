@@ -10,7 +10,7 @@ requirements = [
 
 setup(
     name="buffer_buda",
-    version='0.4.5',
+    version='0.5.1',
     packages=find_packages(),
     install_requires=requirements,
 )

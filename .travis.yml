@@ -2,19 +2,32 @@ language: python
 
 python: 3.6
 
+node_js: 8
+
 services:
   - docker
+
+before_install:
+  - printf "//registry.npmjs.org/:_authToken=\${NPM_TOKEN}" >> ~/.npmrc
 
 install:
     - "pip install twine"
 
 script:
     - "make package-python"
+    - "make setup-node"
+    - "make package-node"
+    - "make test-node"
 
 deploy:
   - provider: script
     skip_cleanup: true
     script: "make publish-python"
+    on:
+      branch: master
+  - provider: script
+    skip_cleanup: true
+    script: "make publish-node"
     on:
       branch: master
 

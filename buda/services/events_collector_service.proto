@@ -6,6 +6,7 @@ import "buda/entities/funnel.proto";
 import "buda/entities/funnel_event.proto";
 import "buda/entities/visit.proto";
 import "buda/entities/signup.proto";
+import "buda/entities/action_taken.proto";
 import "buda/entities/subscription_created.proto";
 import "buda/entities/subscription_cancelled.proto";
 import "buda/entities/subscription_period_updated.proto";
@@ -16,6 +17,7 @@ service EventsCollector {
   rpc CollectFunnelEvent (FunnelEvent) returns (Response) {}
   rpc CollectVisit(Visit) returns (Response) {}
   rpc CollectSignup(Signup) returns (Response) {}
+  rpc CollectActionTaken(ActionTaken) returns (Response) {}
 
   //Subscription Events
   rpc CollectSubscriptionCreated(SubscriptionCreated) returns (Response) {}

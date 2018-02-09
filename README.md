@@ -1,6 +1,8 @@
 # Buffer Unified Data Architecture Protocol Buffers
 
+[![Build Status](https://travis-ci.org/bufferapp/buda-protobufs.svg?branch=master)](https://travis-ci.org/bufferapp/buda-protobufs)
 [![npm version](https://badge.fury.io/js/%40bufferapp%2Fbuda.svg)](https://badge.fury.io/js/%40bufferapp%2Fbuda)
+[![PyPI version](https://badge.fury.io/py/buffer-buda.svg)](https://badge.fury.io/py/buffer-buda)
 
 Central repository where Buffer's Data Architecture protobufs live.
 

@@ -23,4 +23,10 @@ message Signup {
     }
     SignupOption signup_option = 6;
     bool with_trial = 7;
+    enum Product {
+        PUBLISH = 0;
+        REPLY = 1;
+        ANALYZE = 2;
+    }
+    Product product = 7;
 }

@@ -14,5 +14,13 @@ message Signup {
     Uuid client_id = 5;
     google.protobuf.Timestamp created_at = 4;
     string signup_option = 6;
+    enum signup_option {
+      EMAIL = 0;
+      FACEBOOK = 1;
+      TWITTER = 2;
+      LINKEDIN = 3;
+      GOOGLE = 4;
+      ORG_TEAM_INVITE = 5;
+    }
     bool with_trial = 7;
 }

@@ -12,7 +12,7 @@ message Signup {
       TWITTER = 2;
       LINKEDIN = 3;
       GOOGLE = 4;
-      ORG_TEAM_INVITE = 5;
+      TEAM_INVITE = 5;
     }
 
     enum Product {

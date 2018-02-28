@@ -5,14 +5,7 @@ package buda;
 import "buda/entities/uuid.proto";
 import "google/protobuf/timestamp.proto";
 
-
 message Signup {
-    Uuid id = 1;
-    Uuid user_id = 2;
-    Uuid visitor_id = 3;
-    Uuid legacy_visitor_id = 100; //buffer-web visitor_id, will be deprecated
-    Uuid client_id = 5;
-    google.protobuf.Timestamp created_at = 4;
     enum SignupOption {
       EMAIL = 0;
       FACEBOOK = 1;
@@ -21,12 +14,20 @@ message Signup {
       GOOGLE = 4;
       ORG_TEAM_INVITE = 5;
     }
-    SignupOption signup_option = 6;
-    bool with_trial = 7;
+
     enum Product {
         PUBLISH = 0;
         REPLY = 1;
         ANALYZE = 2;
     }
-    Product product = 7;
+
+    Uuid id = 1;
+    Uuid user_id = 2;
+    Uuid visitor_id = 3;
+    Uuid legacy_visitor_id = 100; //buffer-web visitor_id, will be deprecated
+    Uuid client_id = 5;
+    google.protobuf.Timestamp created_at = 4;
+    SignupOption signup_option = 6;
+    bool with_trial = 7;
+    Product product = 8;
 }

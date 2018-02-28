@@ -21,12 +21,19 @@ message Signup {
         ANALYZE = 2;
     }
 
+    enum SignupClient {
+        WEB = 0;
+        IOS = 1;
+        ANDROID = 2;
+        OTHER = 3;
+    }
+
     Uuid id = 1;
     Uuid user_id = 2;
     Uuid visitor_id = 3;
     Uuid legacy_visitor_id = 100; //buffer-web visitor_id, will be deprecated
-    Uuid client_id = 5;
     google.protobuf.Timestamp created_at = 4;
+    SignupClient signup_client = 5;
     SignupOption signup_option = 6;
     bool with_trial = 7;
     Product product = 8;

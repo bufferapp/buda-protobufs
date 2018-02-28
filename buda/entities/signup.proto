@@ -5,12 +5,36 @@ package buda;
 import "buda/entities/uuid.proto";
 import "google/protobuf/timestamp.proto";
 
-
 message Signup {
+    enum SignupOption {
+      EMAIL = 0;
+      FACEBOOK = 1;
+      TWITTER = 2;
+      LINKEDIN = 3;
+      GOOGLE = 4;
+      ORG_TEAM_INVITE = 5;
+    }
+
+    enum Product {
+        PUBLISH = 0;
+        REPLY = 1;
+        ANALYZE = 2;
+    }
+
+    enum SignupClient {
+        WEB = 0;
+        IOS = 1;
+        ANDROID = 2;
+        OTHER = 3;
+    }
+
     Uuid id = 1;
     Uuid user_id = 2;
     Uuid visitor_id = 3;
     Uuid legacy_visitor_id = 100; //buffer-web visitor_id, will be deprecated
-
     google.protobuf.Timestamp created_at = 4;
+    SignupClient signup_client = 5;
+    SignupOption signup_option = 6;
+    bool with_trial = 7;
+    Product product = 8;
 }

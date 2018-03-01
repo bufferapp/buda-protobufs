@@ -4,6 +4,7 @@ package buda;
 
 import "buda/entities/uuid.proto";
 import "google/protobuf/timestamp.proto";
+import "buda/entities/product.proto";
 
 message Signup {
     enum SignupOption {
@@ -13,12 +14,6 @@ message Signup {
       LINKEDIN = 3;
       GOOGLE = 4;
       TEAM_INVITE = 5;
-    }
-
-    enum Product {
-        PUBLISH = 0;
-        REPLY = 1;
-        ANALYZE = 2;
     }
 
     enum SignupClient {

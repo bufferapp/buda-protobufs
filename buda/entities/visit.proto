@@ -4,6 +4,7 @@ package buda;
 
 import "buda/entities/uuid.proto";
 import "google/protobuf/timestamp.proto";
+import "buda/entities/product.proto";
 
 message Visit {
 
@@ -38,4 +39,5 @@ message Visit {
     string domain = 10;
     repeated Experiment experiments = 11;
     string source = 12;
+    Product product = 13;
 }

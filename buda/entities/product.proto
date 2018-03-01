@@ -1,0 +1,9 @@
+syntax = "proto3";
+
+package buda;
+
+enum Product {
+  PUBLISH = 0;
+  REPLY = 1;
+  ANALYZE = 2;
+}

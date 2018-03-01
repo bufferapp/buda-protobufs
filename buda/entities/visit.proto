@@ -38,4 +38,5 @@ message Visit {
     string domain = 10;
     repeated Experiment experiments = 11;
     string source = 12;
+    string cta = 14;
 }

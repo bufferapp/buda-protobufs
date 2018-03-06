@@ -41,3 +41,4 @@ message Visit {
     string source = 12;
     Product product = 13;
     string cta = 14;
+}

@@ -30,6 +30,7 @@ message Signup {
     google.protobuf.Timestamp created_at = 4;
     SignupClient signup_client = 5;
     SignupOption signup_option = 6;
-    string signup_cta = 7;
+    bool with_trial = 7;
     Product product = 8;
+    string signup_cta = 9;
 }

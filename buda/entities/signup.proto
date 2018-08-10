@@ -32,4 +32,5 @@ message Signup {
     SignupOption signup_option = 6;
     bool with_trial = 7;
     Product product = 8;
+    string signup_cta = 9;
 }

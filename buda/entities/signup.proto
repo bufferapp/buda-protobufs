@@ -23,6 +23,14 @@ message Signup {
         OTHER = 3;
     }
 
+
+    message UserAgent {
+        string browser = 1;
+        string version = 2;
+        string os = 3;
+        string device = 4;
+      }
+
     Uuid id = 1;
     Uuid user_id = 2;
     Uuid visitor_id = 3;
@@ -33,4 +41,6 @@ message Signup {
     bool with_trial = 7;
     Product product = 8;
     string signup_cta = 9;
+    UserAgent user_agent = 10;
+    
 }

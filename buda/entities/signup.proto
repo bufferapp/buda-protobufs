@@ -18,9 +18,11 @@ message Signup {
 
     enum SignupClient {
         WEB = 0;
-        IOS = 1;
-        ANDROID = 2;
-        OTHER = 3;
+        PUBLISH = 1;
+        ANALYZE = 3;
+        IPHONE = 4;
+        ANDROID = 5;
+        OTHER = 6;
     }
 
 

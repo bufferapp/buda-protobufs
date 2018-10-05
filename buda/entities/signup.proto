@@ -38,11 +38,11 @@ message Signup {
     Uuid visitor_id = 3;
     Uuid legacy_visitor_id = 100; //buffer-web visitor_id, will be deprecated
     google.protobuf.Timestamp created_at = 4;
-    SignupClient signup_client = 5;
-    SignupOption signup_option = 6;
+    SignupClient client = 5;
+    SignupOption option = 6;
     bool with_trial = 7;
     Product product = 8;
-    string signup_cta = 9;
+    string cta = 9;
     UserAgent user_agent = 10;
     Uuid client_id = 11;
 }

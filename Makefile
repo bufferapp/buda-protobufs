@@ -42,6 +42,10 @@ test-node:
 publish-node:
 	@./scripts/publish-node.sh
 
+.PHONY: publish-pre-node
+publish-node:
+	@./scripts/publish-pre-node.sh
+
 .PHONY: packages
 packages: package-node package-python
 

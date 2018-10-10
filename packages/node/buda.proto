@@ -77,12 +77,47 @@ enum PaymentType{
 	PAYPAL = 5;
 }
 
+enum Product{
+	PUBLISH = 0;
+	REPLY = 1;
+	ANALYZE = 2;
+}
+
 message Signup {
+	message UserAgent {
+		string browser = 1;
+		string version = 2;
+		string os = 3;
+		string device = 4;
+	}
+	enum SignupOption{
+		EMAIL = 0;
+		FACEBOOK = 1;
+		TWITTER = 2;
+		LINKEDIN = 3;
+		GOOGLE = 4;
+		TEAM_INVITE = 5;
+	}
+	enum SignupClient{
+		WEB = 0;
+		PUBLISH = 1;
+		ANALYZE = 3;
+		IPHONE = 4;
+		ANDROID = 5;
+		OTHER = 6;
+	}
 	Uuid id = 1;
 	Uuid user_id = 2;
 	Uuid visitor_id = 3;
 	Uuid legacy_visitor_id = 100;
 	Timestamp created_at = 4;
+	SignupClient client = 5;
+	SignupOption option = 6;
+	bool was_created_with_trial = 7;
+	Product product = 8;
+	string cta = 9;
+	UserAgent user_agent = 10;
+	Uuid client_id = 11;
 }
 
 message SubscriptionCancelled {
@@ -176,6 +211,8 @@ message Visit {
 	string domain = 10;
 	repeated Experiment experiments = 11;
 	string source = 12;
+	Product product = 13;
+	string cta = 14;
 }
 
 message Response {

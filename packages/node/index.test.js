@@ -1,14 +1,11 @@
 const assert = require('assert')
-const protobufjs = require('protobufjs')
-const buda = require('./index')
+const { EventsCollector, credentials } = require('./index')
 
 // Very basic test to check that messages and services are loaded correctly
-assert.ok(Object.keys(buda).length > 0)
-assert.ok(buda.EventsCollector)
+assert.ok(EventsCollector)
+assert.ok(credentials)
 
-// Test some message types
-assert.ok(buda.Uuid)
-assert.ok(buda.Signup)
-assert.ok(buda.Visit)
+const client = new EventsCollector('localhost:50051', credentials)
+assert.ok(client.CollectVisit)
 
 console.log('Test passed')

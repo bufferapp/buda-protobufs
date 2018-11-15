@@ -2,7 +2,9 @@ language: python
 
 python: 3.6
 
-node_js: 8
+node_js:
+  - "8.12"
+  - "10
 
 services:
   - docker

@@ -8,7 +8,7 @@ NPMRC_PATH="$HOME/.npmrc"
 # The runtime is either node (local) or docker
 RUNTIME="node"
 
-REQUIRED_NODE_MAJOR_VERSION="8"
+REQUIRED_NODE_MAJOR_VERSION="10"
 
 # Check for a valid local version of node
 if output=$(which node); then
@@ -51,6 +51,6 @@ else
         -v $NPMRC_PATH:/root/.npmrc \
         -v $PWD/packages/node:/app \
         -w /app \
-        node:8-alpine \
+        node:10-alpine \
         $COMMAND
 fi

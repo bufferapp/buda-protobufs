@@ -19,7 +19,8 @@
   },
   "dependencies": {
     "@grpc/grpc-js": "^0.3.2",
-    "@grpc/proto-loader": "^0.3.0"
+    "@grpc/proto-loader": "^0.3.0",
+    "protobufjs": "*"
   },
   "engines": {
     "node": "^8.11.2 || >=9.4"

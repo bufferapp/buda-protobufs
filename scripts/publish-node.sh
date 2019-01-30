@@ -1,15 +1,16 @@
 #!/usr/bin/env bash
-
+echo 1
 VERSION=$(cat VERSION)
 ARG="$1"
 PACKAGE_DIR="$PWD/packages/node/"
 NPMRC_PATH="$HOME/.npmrc"
 
 # The runtime is either node (local) or docker
-RUNTIME="node"
+RUNTIME="docker"
 
 REQUIRED_NODE_MAJOR_VERSION="8"
 
+echo 2
 # Check for a valid local version of node
 if output=$(which node); then
     NODE_VERSION=$(node -v)
@@ -25,6 +26,8 @@ else
     RUNTIME="docker"
 fi
 
+echo 3
+
 # For beta release: ./scripts/publish-node.sh beta
 if [ "$ARG" == "beta" ]; then
     COMMAND="npm publish --tag beta"
@@ -35,6 +38,7 @@ fi
 echo "Publishing @bufferapp/buda@$VERSION using $RUNTIME runtime"
 echo "$COMMAND"
 
+echo 4
 if [ "$RUNTIME" == "node" ]; then
     cd $PACKAGE_DIR
     $COMMAND

@@ -18,8 +18,8 @@ message Signup {
 
     enum SignupClient {
         WEB = 0;
-        PUBLISH = 1;
-        ANALYZE = 3;
+        // PUBLISH = 1; --deprecated value
+        // ANALYZE = 3; --deprecated value
         IPHONE = 4;
         ANDROID = 5;
         OTHER = 6;

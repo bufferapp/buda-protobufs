@@ -45,4 +45,5 @@ message Signup {
     string cta = 9;
     UserAgent user_agent = 10;
     Uuid client_id = 11;
+    Uuid account_id = 12;
 }

@@ -6,18 +6,19 @@ import "buda/entities/uuid.proto";
 import "google/protobuf/timestamp.proto";
 import "buda/entities/product.proto";
 
-message Signup {
-    enum SignupOption {
+message Signin {
+    enum SigninOption {
       EMAIL = 0;
       FACEBOOK = 1;
       TWITTER = 2;
       LINKEDIN = 3;
       GOOGLE = 4;
-      TEAM_INVITE = 5;
     }
 
-    enum SignupClient {
+    enum SigninClient {
         WEB = 0;
+        PUBLISH = 1;
+        ANALYZE = 3;
         IPHONE = 4;
         ANDROID = 5;
         OTHER = 6;
@@ -36,12 +37,11 @@ message Signup {
     Uuid visitor_id = 3;
     Uuid legacy_visitor_id = 100; //buffer-web visitor_id, will be deprecated
     google.protobuf.Timestamp created_at = 4;
-    SignupClient client = 5;
-    SignupOption option = 6;
-    bool was_created_with_trial = 7;
-    Product product = 8;
-    string cta = 9;
-    UserAgent user_agent = 10;
-    Uuid client_id = 11;
-    Uuid account_id = 12;
+    SigninClient client = 5;
+    SigninOption option = 6;
+    Product product = 7;
+    UserAgent user_agent = 8;
+    Uuid client_id = 9;
+    string referrer = 10;
+    string ip = 11;
 }

@@ -1,6 +1,6 @@
 {
   "name": "@bufferapp/buda",
-  "version": "0.6.2",
+  "version": "0.6.3",
   "description": "The protobufs for the Buffer Unified Data Architecture",
   "main": "index.js",
   "scripts": {
@@ -18,7 +18,11 @@
     "url": "git+https://github.com/bufferapp/buda-protobufs.git"
   },
   "dependencies": {
-    "grpc": "~1.8.0",
-    "protobufjs": "~6.8.0"
+    "@grpc/grpc-js": "^0.3.2",
+    "@grpc/proto-loader": "^0.3.0",
+    "protobufjs": "*"
+  },
+  "engines": {
+    "node": "^8.11.2 || >=9.4"
   }
 }

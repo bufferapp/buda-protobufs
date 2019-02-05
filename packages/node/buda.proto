@@ -259,6 +259,7 @@ service EventsCollector {
 	rpc CollectFunnelEvent (FunnelEvent) returns (Response){}
 	rpc CollectVisit (Visit) returns (Response){}
 	rpc CollectSignup (Signup) returns (Response){}
+	rpc CollectSignin (Signin) returns (Response){}
 	rpc CollectActionTaken (ActionTaken) returns (Response){}
 	rpc CollectSubscriptionCreated (SubscriptionCreated) returns (Response){}
 	rpc CollectSubscriptionPeriodUpdated (SubscriptionPeriodUpdated) returns (Response){}

@@ -44,4 +44,5 @@ message Signin {
     Uuid client_id = 9;
     string referrer = 10;
     string ip = 11;
+    Uuid account_id = 12;
 }

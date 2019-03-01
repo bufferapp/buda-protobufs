@@ -3,14 +3,11 @@
 from setuptools import setup
 from setuptools import find_packages
 
-requirements = [
-    'grpcio',
-    'protobuf'
-]
+requirements = ["grpcio", "protobuf"]
 
 setup(
     name="buffer_buda",
-    version='0.7.2',
+    version="0.7.2",
     packages=find_packages(),
     install_requires=requirements,
 )

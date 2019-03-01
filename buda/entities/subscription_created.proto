@@ -10,30 +10,30 @@ import "buda/entities/payment_schedule.proto";
 import "buda/entities/payment_type.proto";
 
 message SubscriptionCreated {
-    message Subscription {
-      Uuid id = 1;
-      SubscriptionStatus status = 2;
-      google.protobuf.Timestamp created_at = 3;
-      Uuid plan_id = 4;
-      string plan_name = 5;
-      string gateway_customer_id = 6;
-      PaymentTerms payment_terms = 7;
-      PaymentSchedule payment_schedule = 8;
-      float term_value = 9;
-      google.protobuf.Timestamp initial_period_start = 10;
-      google.protobuf.Timestamp initial_period_end = 11;
-    }
-
-    message Payment {
-        Uuid id = 1;
-        PaymentType type = 2;
-        float amount = 3;
-        string currency = 4;
-    }
-
+  message Subscription {
     Uuid id = 1;
-    Uuid user_id = 2;
+    SubscriptionStatus status = 2;
     google.protobuf.Timestamp created_at = 3;
-    Subscription subscription = 4;
-    Payment payment = 5;
+    Uuid plan_id = 4;
+    string plan_name = 5;
+    string gateway_customer_id = 6;
+    PaymentTerms payment_terms = 7;
+    PaymentSchedule payment_schedule = 8;
+    float term_value = 9;
+    google.protobuf.Timestamp initial_period_start = 10;
+    google.protobuf.Timestamp initial_period_end = 11;
+  }
+
+  message Payment {
+    Uuid id = 1;
+    PaymentType type = 2;
+    float amount = 3;
+    string currency = 4;
+  }
+
+  Uuid id = 1;
+  Uuid user_id = 2;
+  google.protobuf.Timestamp created_at = 3;
+  Subscription subscription = 4;
+  Payment payment = 5;
 }

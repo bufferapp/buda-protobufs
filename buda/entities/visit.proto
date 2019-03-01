@@ -8,37 +8,37 @@ import "buda/entities/product.proto";
 
 message Visit {
 
-    message UserAgent {
-      string browser = 1;
-      string version = 2;
-    }
+  message UserAgent {
+    string browser = 1;
+    string version = 2;
+  }
 
-    message Utm {
-        string source = 1;
-        string medium = 2;
-        string campaign = 3;
-        string content = 4;
-        string term = 5;
-    }
+  message Utm {
+    string source = 1;
+    string medium = 2;
+    string campaign = 3;
+    string content = 4;
+    string term = 5;
+  }
 
-    message Experiment {
-        string id = 1;
-        string name = 2;
-        bool enabled = 3;
-    }
+  message Experiment {
+    string id = 1;
+    string name = 2;
+    bool enabled = 3;
+  }
 
-    Uuid id = 1;
-    Uuid visitor_id = 2;
-    Uuid user_id = 3;
-    google.protobuf.Timestamp created_at = 4;
-    string uri = 5;
-    string ip = 6;
-    Utm utm = 7;
-    UserAgent user_agent = 8;
-    string referrer = 9;
-    string domain = 10;
-    repeated Experiment experiments = 11;
-    string source = 12;
-    Product product = 13;
-    string cta = 14;
+  Uuid id = 1;
+  Uuid visitor_id = 2;
+  Uuid user_id = 3;
+  google.protobuf.Timestamp created_at = 4;
+  string uri = 5;
+  string ip = 6;
+  Utm utm = 7;
+  UserAgent user_agent = 8;
+  string referrer = 9;
+  string domain = 10;
+  repeated Experiment experiments = 11;
+  string source = 12;
+  Product product = 13;
+  string cta = 14;
 }

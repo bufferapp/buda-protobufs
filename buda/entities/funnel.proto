@@ -6,9 +6,9 @@ import "buda/entities/uuid.proto";
 import "google/protobuf/timestamp.proto";
 
 message Funnel {
-    Uuid id = 1;
-    Uuid user_id = 2;
-    google.protobuf.Timestamp created_at = 3;
-    string name = 4;
-    map<string, string> tags = 5;
+  Uuid id = 1;
+  Uuid user_id = 2;
+  google.protobuf.Timestamp created_at = 3;
+  string name = 4;
+  map<string, string> tags = 5;
 }

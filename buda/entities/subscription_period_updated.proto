@@ -7,24 +7,23 @@ import "google/protobuf/timestamp.proto";
 import "buda/entities/subscription_status.proto";
 import "buda/entities/payment_type.proto";
 
-
 message SubscriptionPeriodUpdated {
-    message Subscription {
-      Uuid id = 1;
-      SubscriptionStatus status = 2;
-      google.protobuf.Timestamp new_period_start = 3;
-      google.protobuf.Timestamp new_period_end = 4;
-    }
-
-    message Payment {
-        Uuid id = 1;
-        PaymentType type = 2;
-        float amount = 3;
-        string currency = 4;
-    }
+  message Subscription {
     Uuid id = 1;
-    Uuid user_id = 2;
-    google.protobuf.Timestamp created_at = 3;
-    Subscription subscription =4;
-    Payment payment = 5;
+    SubscriptionStatus status = 2;
+    google.protobuf.Timestamp new_period_start = 3;
+    google.protobuf.Timestamp new_period_end = 4;
+  }
+
+  message Payment {
+    Uuid id = 1;
+    PaymentType type = 2;
+    float amount = 3;
+    string currency = 4;
+  }
+  Uuid id = 1;
+  Uuid user_id = 2;
+  google.protobuf.Timestamp created_at = 3;
+  Subscription subscription = 4;
+  Payment payment = 5;
 }

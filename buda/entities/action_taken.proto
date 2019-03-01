@@ -9,14 +9,14 @@ import "google/protobuf/timestamp.proto";
  * ActionTaken is an action that a user takes in an application directly
  */
 message ActionTaken {
-    Uuid id = 1;
-    // The application where the action is performed
-    string application = 2;
-    // The location in the application UI where the action is performed
-    string location = 3;
-    // A unique label for the action performed
-    string action = 4;
-    // Metadata contains key-value pairs of useful fields like userIds
-    map<string, string> metadata = 5;
-    google.protobuf.Timestamp created_at = 6;
+  Uuid id = 1;
+  // The application where the action is performed
+  string application = 2;
+  // The location in the application UI where the action is performed
+  string location = 3;
+  // A unique label for the action performed
+  string action = 4;
+  // Metadata contains key-value pairs of useful fields like userIds
+  map<string, string> metadata = 5;
+  google.protobuf.Timestamp created_at = 6;
 }

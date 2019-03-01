@@ -3,33 +3,17 @@ language: python
 python: 3.6
 
 services:
-  - docker
-
-before_install:
-  - printf "//registry.npmjs.org/:_authToken=\${NPM_TOKEN}" >> ~/.npmrc
+    - docker
 
 install:
     - "pip install twine"
-    - "nvm install 10"
-    - "nvm use 10"
 
 script:
     - "make package-python"
-    - "make setup-node"
-    - "make package-node"
-    - "make test-node"
 
 deploy:
-  - provider: script
-    skip_cleanup: true
-    script: "make publish-python"
-    on:
-      tags: true
-  - provider: script
-    skip_cleanup: true
-    script: "make publish-node"
-    on:
-      tags: true
-
-notifications:
-  email: false
+    - provider: script
+      skip_cleanup: true
+      script: "make publish-python"
+      on:
+          tags: true

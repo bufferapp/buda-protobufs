@@ -7,42 +7,41 @@ import "google/protobuf/timestamp.proto";
 import "buda/entities/product.proto";
 
 message Signin {
-    enum SigninOption {
-      EMAIL = 0;
-      FACEBOOK = 1;
-      TWITTER = 2;
-      LINKEDIN = 3;
-      GOOGLE = 4;
-    }
+  enum SigninOption {
+    EMAIL = 0;
+    FACEBOOK = 1;
+    TWITTER = 2;
+    LINKEDIN = 3;
+    GOOGLE = 4;
+  }
 
-    enum SigninClient {
-        WEB = 0;
-        PUBLISH = 1;
-        ANALYZE = 3;
-        IPHONE = 4;
-        ANDROID = 5;
-        OTHER = 6;
-    }
+  enum SigninClient {
+    WEB = 0;
+    PUBLISH = 1;
+    ANALYZE = 3;
+    IPHONE = 4;
+    ANDROID = 5;
+    OTHER = 6;
+  }
 
+  message UserAgent {
+    string browser = 1;
+    string version = 2;
+    string os = 3;
+    string device = 4;
+  }
 
-    message UserAgent {
-        string browser = 1;
-        string version = 2;
-        string os = 3;
-        string device = 4;
-      }
-
-    Uuid id = 1;
-    Uuid user_id = 2;
-    Uuid visitor_id = 3;
-    Uuid legacy_visitor_id = 100; //buffer-web visitor_id, will be deprecated
-    google.protobuf.Timestamp created_at = 4;
-    SigninClient client = 5;
-    SigninOption option = 6;
-    Product product = 7;
-    UserAgent user_agent = 8;
-    Uuid client_id = 9;
-    string referrer = 10;
-    string ip = 11;
-    Uuid account_id = 12;
+  Uuid id = 1;
+  Uuid user_id = 2;
+  Uuid visitor_id = 3;
+  Uuid legacy_visitor_id = 100; // buffer-web visitor_id, will be deprecated
+  google.protobuf.Timestamp created_at = 4;
+  SigninClient client = 5;
+  SigninOption option = 6;
+  Product product = 7;
+  UserAgent user_agent = 8;
+  Uuid client_id = 9;
+  string referrer = 10;
+  string ip = 11;
+  Uuid account_id = 12;
 }
